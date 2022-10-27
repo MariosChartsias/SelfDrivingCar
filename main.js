@@ -1,15 +1,13 @@
 const canvas=document.getElementById("myCanvas");
-
+canvas.width=200; // the width of road
 const ctx=canvas.getContext("2d");
-var mouse=new Mouse(1,0); //for personal use
-const car= new Car(window.innerWidth/2,window.innerHeight/2,30,50);
+const car= new Car(100,100,30,50);
 
 animate();
 
 function animate(){
     
     car.update();
-    canvas.width=window.innerWidth; // the width of road
     canvas.height=window.innerHeight; //it fits all the height because it's inside of requestAnimationFrame
     car.draw(ctx); 
     

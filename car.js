@@ -70,7 +70,7 @@ class Car{
         
         ctx.save();
         ctx.font = "12px times new roman"; //for personal use
-        ctx.fillText(this.speed.toFixed(2)+" km/h "+" pos: x="+this.x.toFixed(0)+" y="+this.y.toFixed(0)+" "+mouse.var , window.innerWidth/80,window.innerHeight/22); // for personal use
+        ctx.fillText(this.speed.toFixed(2)+" km/h", window.innerWidth/80,window.innerHeight/22); // for personal use
         ctx.translate(this.x,this.y);
         ctx.rotate(-this.angle);
         ctx.beginPath();
