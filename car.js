@@ -9,7 +9,7 @@ class Car{
         //this.maxy=window.innerHeight;
 
         this.speed=0;
-        this.acceleration=0.1;
+        this.acceleration=0.2;
         this.maxSpeed=4;
         this.friction=0.05;
         this.angle=0;
@@ -46,13 +46,13 @@ class Car{
         if(Math.abs(this.speed)<this.friction){
             this.speed=0;
         }
-        if(Math.abs(this.speed)>0.2){
+        if(Math.abs(this.speed)>0){
             const flip=this.speed>0?1:-1;
             if(this.controls.left){
-                this.angle+=0.03;
+                this.angle+=0.03*flip;
             }
             if(this.controls.right){
-                this.angle-=0.03;
+                this.angle-=0.03*flip;
             }
         }
         // if(this.x<20 || this.x>this.maxx*0.99||this.y<50 || this.y>this.maxy*0.98){
@@ -69,10 +69,11 @@ class Car{
     draw(ctx){
         
         ctx.save();
-        ctx.font = "12px times new roman"; //for personal use
-        ctx.fillText(this.speed.toFixed(2)+" km/h", window.innerWidth/80,window.innerHeight/22); // for personal use
+        //ctx.font = "12px times new  roman"; //for personal use
+        //ctx.fillText(this.speed.toFixed(2)+" km/h", window.innerWidth/80,window.innerHeight/22); // for personal use
         ctx.translate(this.x,this.y);
         ctx.rotate(-this.angle);
+        
         ctx.beginPath();
         ctx.rect(
             -this.width/2,
